@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
 const SigninScreen = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [shown, setShown] = React.useState(false);
 
   return (
     <ScrollView style={styles.container}>
@@ -76,15 +77,22 @@ const SigninScreen = () => {
             style={[styles.input, { marginBottom: 8 }]}
           />
           <TextInput
-            secureTextEntry
+            secureTextEntry={!shown}
             value={password}
             onChangeText={(text) => setPassword(text)}
             textContentType="password"
             placeholder="Password"
             style={styles.input}
           />
-          <TouchableOpacity style={{ marginTop: 8, marginBottom: 24 }}>
-            <Text style={{ color: palette.text.secondary }}>Show password</Text>
+          <TouchableOpacity
+            style={{ marginTop: 8, marginBottom: 24 }}
+            onPress={() => setShown(!shown)}
+          >
+            <Text style={{ color: palette.text.secondary }}>
+              {shown ? 'Hide' : 'Show'}
+              {' '}
+              password
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button}>
             <Text style={{ color: palette.common.white }}>Login</Text>
