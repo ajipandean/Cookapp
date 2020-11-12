@@ -12,11 +12,7 @@ const App = () => (
   <NavigationContainer>
     <Stack.Navigator
       initialRouteName="Welcome"
-      screenOptions={{
-        gestureEnabled: true,
-        gestureDirection: 'horizontal',
-        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-      }}
+      screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}
     >
       {screens.map((screen) => (
         <Stack.Screen
