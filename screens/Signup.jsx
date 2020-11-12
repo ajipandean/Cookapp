@@ -35,12 +35,20 @@ const styles = StyleSheet.create({
   },
 });
 
-const SignupScreen = () => {
+const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [confirmPass, setConfirmPass] = React.useState('');
   const [showPass, setShowPass] = React.useState(false);
   const [showAlert, setShowAlert] = React.useState(false);
+
+  const handlerSignup = () => {
+    if (confirmPass !== password || email === '' || password === '') {
+      setShowAlert(true);
+    } else {
+      navigation.navigate('Main');
+    }
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -62,7 +70,7 @@ const SignupScreen = () => {
           <BlockAlert
             bgColor={palette.error.main}
             textColor={palette.common.white}
-            message="Confirm password doesn't match the password"
+            message="Email and password cannot be empty, confirm password and password should match"
           />
         ) : null}
         <View>
@@ -105,7 +113,7 @@ const SignupScreen = () => {
           label="Sign up"
           bgColor={palette.primary.main}
           textColor={palette.common.white}
-          onPress={() => {}}
+          onPress={handlerSignup}
         />
       </View>
     </ScrollView>
