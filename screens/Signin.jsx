@@ -47,12 +47,27 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: 'center',
   },
+  alert: {
+    padding: 16,
+    marginBottom: 16,
+    borderRadius: radius.normal,
+    backgroundColor: palette.error.main,
+  },
 });
 
-const SigninScreen = () => {
+const SigninScreen = ({ navigation }) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [shown, setShown] = React.useState(false);
+  const [alert, setAlert] = React.useState(false);
+
+  const handlerLogin = () => {
+    if (email === '' && password === '') {
+      setAlert(true);
+      return;
+    }
+    navigation.navigate('Main');
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -68,12 +83,20 @@ const SigninScreen = () => {
           />
         </View>
         <Text style={styles.head}>Welcome back</Text>
+        {alert ? (
+          <View style={styles.alert}>
+            <Text style={{ color: palette.common.white }}>
+              Email and password should not empty
+            </Text>
+          </View>
+        ) : null}
         <View>
           <TextInput
             value={email}
             onChangeText={(text) => setEmail(text)}
             type="text"
             placeholder="Email"
+            keyboardType="email-address"
             style={[styles.input, { marginBottom: 8 }]}
           />
           <TextInput
@@ -94,7 +117,10 @@ const SigninScreen = () => {
               password
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={handlerLogin}
+          >
             <Text style={{ color: palette.common.white }}>Login</Text>
           </TouchableOpacity>
         </View>
