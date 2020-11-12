@@ -22,6 +22,6 @@ module.exports = [
   {
     name: 'Main',
     component: MainScreen,
-    options: {},
+    options: { headerShown: false },
   },
 ];
