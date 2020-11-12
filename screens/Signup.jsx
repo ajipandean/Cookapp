@@ -38,6 +38,7 @@ const SignupScreen = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [confirmPass, setConfirmPass] = React.useState('');
+  const [showPass, setShowPass] = React.useState('');
 
   return (
     <ScrollView style={styles.container}>
@@ -69,7 +70,7 @@ const SignupScreen = () => {
             setState={setPassword}
             options={{
               placeholder: 'Password...',
-              secureTextEntry: true,
+              secureTextEntry: !showPass,
             }}
           />
           <FormInputField
@@ -77,12 +78,19 @@ const SignupScreen = () => {
             setState={setConfirmPass}
             options={{
               placeholder: 'Confirm password...',
-              secureTextEntry: true,
+              secureTextEntry: !showPass,
             }}
           />
         </View>
-        <TouchableOpacity style={{ marginBottom: 24 }}>
-          <Text style={{ color: palette.text.secondary }}>Show password</Text>
+        <TouchableOpacity
+          style={{ marginBottom: 24 }}
+          onPress={() => setShowPass(!showPass)}
+        >
+          <Text style={{ color: palette.text.secondary }}>
+            {showPass ? 'Hide' : 'Show'}
+            {' '}
+            password
+          </Text>
         </TouchableOpacity>
         <BlockButton
           label="Sign up"
