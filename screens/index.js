@@ -17,7 +17,7 @@ module.exports = [
   {
     name: 'Signup',
     component: SignupScreen,
-    options: {},
+    options: { headerShown: false },
   },
   {
     name: 'Main',
