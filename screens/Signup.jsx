@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Constants from 'expo-constants';
+import BlockAlert from '../components/BlockAlert';
 import BlockButton from '../components/BlockButton';
 import FormInputField from '../components/FormInputField';
 import illustration from '../assets/illustrations/undraw_fill_forms_yltj.png';
@@ -38,7 +39,8 @@ const SignupScreen = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [confirmPass, setConfirmPass] = React.useState('');
-  const [showPass, setShowPass] = React.useState('');
+  const [showPass, setShowPass] = React.useState(false);
+  const [showAlert, setShowAlert] = React.useState(false);
 
   return (
     <ScrollView style={styles.container}>
@@ -56,6 +58,13 @@ const SignupScreen = () => {
         <View style={{ marginTop: 32, marginBottom: 16 }}>
           <Text style={styles.head}>Join with us</Text>
         </View>
+        {showAlert ? (
+          <BlockAlert
+            bgColor={palette.error.main}
+            textColor={palette.common.white}
+            message="Confirm password doesn't match the password"
+          />
+        ) : null}
         <View>
           <FormInputField
             state={email}
