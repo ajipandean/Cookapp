@@ -7,15 +7,12 @@ module.exports = [
   {
     name: 'Welcome',
     component: WelcomeScreen,
-    options: {
-      headerTitleAlign: 'center',
-      headerShown: false,
-    },
+    options: { headerShown: false },
   },
   {
     name: 'Signin',
     component: SigninScreen,
-    options: {},
+    options: { headerShown: false },
   },
   {
     name: 'Signup',
