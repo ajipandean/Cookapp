@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   followButton: {
     marginTop: 16,
-    paddingVertical: 12,
+    paddingVertical: 8,
     paddingHorizontal: 24,
     backgroundColor: palette.primary.main,
     borderRadius: radius.pills,

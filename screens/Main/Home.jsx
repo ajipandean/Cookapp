@@ -45,7 +45,7 @@ const HomeScreen = () => (
           fontSize: typography.size.md,
         }}
         >
-          Pandean Mertayasa
+          Chef Junaedi
         </Text>
       </View>
       <TouchableOpacity style={styles.iconButton}>
