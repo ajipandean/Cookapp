@@ -1,6 +1,8 @@
+import { CardStyleInterpolators } from '@react-navigation/stack';
 import WelcomeScreen from './Welcome';
 import SigninScreen from './Signin';
 import SignupScreen from './Signup';
+import DetailsScreen from './Details';
 import MainScreen from './Main/Main';
 
 module.exports = [
@@ -23,5 +25,14 @@ module.exports = [
     name: 'Main',
     component: MainScreen,
     options: { headerShown: false },
+  },
+  {
+    name: 'Details',
+    component: DetailsScreen,
+    options: {
+      headerShown: false,
+      gestureEnabled: true,
+      cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+    },
   },
 ];

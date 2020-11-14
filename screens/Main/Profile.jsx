@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ProfileScreen = () => (
+const ProfileScreen = ({ navigation }) => (
   <View style={styles.container}>
     <View style={{ position: 'relative' }}>
       <Image
@@ -104,7 +104,7 @@ const ProfileScreen = () => (
         <Text style={styles.recipesTitle}>My Recipes</Text>
         <View>
           {[1, 2, 3, 4, 5].map((i) => (
-            <RecipeItem key={i} />
+            <RecipeItem key={i} navigation={navigation} />
           ))}
         </View>
       </View>
