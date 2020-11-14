@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   banner: {
     width: '100%',
-    height: 242,
+    height: 200,
     resizeMode: 'cover',
   },
   avatar: {
