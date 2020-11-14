@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeScreen = () => (
+const HomeScreen = ({ navigation }) => (
   <View style={styles.container}>
     <View style={{
       padding: 24,
@@ -58,7 +58,7 @@ const HomeScreen = () => (
     </View>
     <ScrollView style={{ paddingHorizontal: 24 }}>
       {[1, 2, 3, 4, 5, 6].map((i) => (
-        <RecipeItem key={i} />
+        <RecipeItem key={i} navigation={navigation} />
       ))}
     </ScrollView>
   </View>

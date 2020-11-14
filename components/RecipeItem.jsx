@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RecipeItem = () => (
+const RecipeItem = ({ navigation }) => (
   <View style={{ marginBottom: 24 }}>
     <TouchableOpacity style={styles.publisherContainer}>
       <View style={styles.publisherAvatarWrapper}>
@@ -70,7 +70,10 @@ const RecipeItem = () => (
       </View>
     </TouchableOpacity>
 
-    <TouchableOpacity style={styles.recipeImageWrapper}>
+    <TouchableOpacity
+      style={styles.recipeImageWrapper}
+      onPress={() => navigation.navigate('Details')}
+    >
       <Image
         style={{
           width: '100%',
